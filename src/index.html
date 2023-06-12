@@ -9,41 +9,41 @@
 <body class="bg-cream bg-no-repeat min-h-screen w-full font-mono">
     <div class="flex justify-between p-4">
         <h1 class="text-8xl font-bold text-black text-shadow-black" id="nameTitle">ALBERTO NESSI</h1>
-        <h6 class="text-2xl text-right" id="today">Today</h6>
     </div>
 
     <main class="flex">
         <!-- Left column with entries -->
-        <div class="w-1/4 bg-gray-200 p-4">
+        <div class="w-1/4 p-4">
             <ul>
                 <li><a href="#about">About Me</a></li>
-                <li><a href="#project1">Project 1</a></li>
-                <li><a href="#project2">Project 2</a></li>
-                <!-- Add more entries here -->
+                <li><a href="#chatGPT">ChatGPT Integration</a></li>
+                <li><a href="#contact">Contact me</a></li>
             </ul>
         </div>
 
         <!-- Right column with scrollable section -->
-        <div class="flex-1 overflow-y-auto p-4">
+        <div class="w-3/4 flex-1 overflow-y-auto p-4 scroll-smooth snap-y" id="scrollable-section"
+            style="height: 400px;">
             <!-- Content based on clicked item -->
-            <section id="about" class="bg-red-200 mb-4">
-                <h2 class="text-6xl font-bold m-4">About Me section</h2>
-                <!-- Add About Me content here -->
+            <section id="about" class="content-section bg-red-200 mb-4 h-96 snap-center hover:bg-red-300">
+                <p>Ciao sono io</p>
             </section>
-            <section id="project1" class="bg-blue-200 mb-4">
-                <h2 class="text-6xl font-bold m-4">Project 1 section</h2>
-                <!-- Add Project 1 content here -->
-            </section>
-            <section id="project2" class="bg-green-200 mb-4">
-                <h2 class="text-6xl font-bold m-4">Project 2 section</h2>
-                <!-- Add Project 2 content here -->
-            </section>
-            <!-- Add more sections here -->
+            <a href="chat.html">
+                <section id="chatGPT"
+                    class="content-section bg-blue-200 mb-4 h-96 flex justify-center items-center hover:bg-blue-300">
+                    <div>
+                        <img src="../media/OpenAI_Logo.svg.png" alt="OpenAI Logo">
+                    </div>
+                </section>
+            </a>
+            <a href="mailto:albertonessi1@gmail.com">
+                <section id="contact" class="content-section bg-green-200 mb-4 h-96 snap-center hover:bg-green-300">
+                    <p>Mandami una mail a albertonessi1@gmail.com</p>
+                </section>
+            </a>
         </div>
     </main>
 
 </body>
-
-
 
 </html>
