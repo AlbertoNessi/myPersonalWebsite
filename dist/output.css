@@ -667,6 +667,10 @@ video {
   margin-bottom: 1rem;
 }
 
+.mb-20 {
+  margin-bottom: 80px;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -776,6 +780,10 @@ video {
 
 .min-h-screen {
   min-height: 100vh;
+}
+
+.w-auto {
+  width: auto;
 }
 
 .w-1\/4 {

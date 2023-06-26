@@ -1,0 +1,45 @@
+<?php
+// Function to send a message to ChatGPT and return the response
+function sendMessage($message, $apiKey) {
+    $data = array(
+        'prompt' => $message,
+        'max_tokens' => 100, // Adjust the response length as desired
+        'temperature' => 0.7, // Adjust the temperature to control response randomness (0.0 to 1.0)
+        'stop' => '\n', // Specify a stopping condition for the response
+    );
+
+    $ch = curl_init('https://api.openai.com/v1/engines/davinci-codex/completions');
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_ENCODING, '');
+    curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 0);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/x-www-form-urlencoded',
+        'Authorization: Bearer ' . $apiKey,
+    ));
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+
+    $responseData = json_decode($response, true);
+    $chatGptResponse = $responseData['choices'][0]['text'];
+
+    return $chatGptResponse;
+}
+
+// Handle the incoming message
+if (isset($_POST['message'])) {
+    $message = $_POST['message'];
+    $apiKey = 'YOUR_API_KEY'; // Replace with your actual OpenAI API key
+
+    // Call the sendMessage function to get the ChatGPT response
+    $response = sendMessage($message, $apiKey);
+
+    // Return the response as JSON
+    echo json_encode(array('response' => $response));
+}
+?>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ChatGPT Page</title>
+    <link href="../dist/output.css" rel="stylesheet">
+</head>
+
+<style>
+    body {
+        background-image: url("../media/background.png");
+        background-size: cover;
+    }
+</style>
+
+<body class="bg-cream bg-no-repeat min-h-screen w-full font-mono">
+    <h1 class="text-8xl font-bold text-white text-shadow-black text-center mb-20">ALBERTO NESSI</h1>
+    
+    <div id="chatContainer" class="h-screen flex items-center justify-center">
+        <h2>ChatGPT Integration</h2>
+        <!-- Chat display area -->
+        <div id="chatDisplay" class="chat-display">
+            <!-- Messages will be appended here -->
+        </div>
+
+        <!-- User input area -->
+        <form id="chatForm" class="chat-form">
+            <input id="chatInput" type="text" placeholder="Type a message" required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <!-- Include your JavaScript code to handle the chat functionality -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../chat.js"></script>
+</body>
+
+</html>
